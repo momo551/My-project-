@@ -1,6 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Hello, world! This is the index page of the pages app.")
+    x={
+        'title': 'Welcome to My Page',
+        'message': 'This is the index page of my Django application.'
+    },
+    return render(request,'pages/index.html')
+
+def about(request):
+    if request.method == 'POST':
+        # Handle POST request logic here
+        return render(request, 'pages/about.html')
+
+    return render(request, 'pages/about.html')
