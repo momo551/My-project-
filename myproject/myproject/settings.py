@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'products.apps.ProductsConfig',  # Assuming 'products' is an app in your project
     'pages.apps.PagesConfig',  # Assuming 'pages' is an app in your project
     'django.contrib.admin',
     'django.contrib.auth',
