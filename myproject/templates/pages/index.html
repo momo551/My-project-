@@ -12,14 +12,9 @@ You can find various products and information here.
 Feel free to explore our products and learn more about what we offer.
 </p>
 
-<!-- <form  method="post">
+<form method="post">
     {% csrf_token %}
-    <input type="text" placeholder="frist name"><br>
-    <input type="text" placeholder="last name"><br>
-    <input type="text" placeholder="user name"><br>
-    <input type="text" placeholder="email"><br>
-    <input type="password" placeholder="password"><br>
-    <button>send</button>
-</form> -->
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
 
 {% endblock %}

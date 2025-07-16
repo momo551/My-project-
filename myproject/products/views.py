@@ -3,13 +3,14 @@ from .models import Product
 # from django.views.generic import ListView, DetailView
 
 # Create your views here.
-def Product_list(request):
+def Product_all(request):
     Products = Product.objects.all()
     return render(request, 'products/product_all.html', {'products': Products})
 
 def Product_detail(request, product_id):
-    product = Product.objects.get(id=product_id)
-    return render(request, 'products/product_detail.html', {'product': product})
+    product = Product.objects.get( id=product_id) 
+    x={'product': product}
+    return render(request, 'products/product_detail.html',x)
 
 
 # def Product_list_view(ListView):
