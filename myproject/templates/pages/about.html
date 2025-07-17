@@ -1,10 +1,30 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
-{% block title %}<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-    Blanditiis sit eveniet non accusantium velit id harum alias consequuntur itaque qui! 
-    Sit voluptas fuga culpa dicta animi quo rem explicabo sequi rerum. 
-    Dignissimos natus placeat nulla beatae excepturi ea accusamus accusantium porro alias eligendi. 
-    Vel inventore doloribus vero reprehenderit repudiandae saepe doloremque aperiam ipsa adipisci velit dolore rem, 
-    soluta debitis harum.</p>
-{% endblock %}
 
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<h1>About Us</h1>
+<h2>Welcome {{ username }}</h2>
+
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit...
+</p>
+
+<hr>
+
+<h2>المنتجات المتاحة:</h2>
+<div class="products">
+    {% for product in products %}
+        <div class="product" style="border: 1px solid #ddd; padding: 10px; margin-bottom: 15px;">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description|default:"لا يوجد وصف" }}</p>
+            <p>السعر: ${{ product.price }}</p>
+            <a href="{% url 'product_detail' product.id %}">عرض التفاصيل</a>
+        </div>
+    {% empty %}
+        <p>لا توجد منتجات حالياً.</p>
+    {% endfor %}
+</div>
+
+{% endblock content %}
