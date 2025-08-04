@@ -43,7 +43,16 @@
                         </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'cart:cart_detail' %}">Cart</a>
+                        <a class="nav-link" href="{% url 'cart:cart_detail' %}">
+                            <i class="bi-cart"></i> Cart
+                            <span class="badge bg-secondary" id="cart-count">
+                                {% if request.session.cart %}
+                                    {{ request.session.cart|length }}
+                                {% else %}
+                                    0
+                                {% endif %}
+                            </span>
+                        </a>
                     </li>
                 </ul>
             </div>

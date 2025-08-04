@@ -4,6 +4,9 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from products.models import Product
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Cart functionality using sessions
 
@@ -34,22 +37,33 @@ def cart_detail(request):
 
 @require_POST
 def cart_add(request, product_id):
+    logger.info(f"Attempting to add product {product_id} to cart")
+    logger.info(f"POST data: {request.POST}")
+    
     cart = request.session.get('cart', {})
+    logger.info(f"Current cart: {cart}")
+    
     product = get_object_or_404(Product, id=product_id)
     
     # Get quantity from request
     try:
         quantity = int(request.POST.get('quantity', 1))
+        logger.info(f"Quantity requested: {quantity}")
     except (ValueError, TypeError):
         quantity = 1
+        logger.warning("Invalid quantity provided, defaulting to 1")
     
     # Add to cart
     if str(product_id) in cart:
         cart[str(product_id)] += quantity
+        logger.info(f"Updated existing item: {product_id} now has {cart[str(product_id)]}")
     else:
         cart[str(product_id)] = quantity
+        logger.info(f"Added new item: {product_id} with quantity {quantity}")
     
     request.session['cart'] = cart
+    request.session.modified = True  # Ensure session is saved
+    logger.info(f"Cart saved: {cart}")
     
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         return JsonResponse({
