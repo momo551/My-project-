@@ -20,7 +20,14 @@
         <p><strong>Category:</strong> <a href="{{ product.category.get_absolute_url }}">{{ product.category.name }}</a></p>
         
         <div class="mt-4">
-            <button class="btn btn-cart btn-lg">Add to Cart</button>
+            <form method="post" action="{% url 'cart:cart_add' product.id %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity:</label>
+                    <input type="number" name="quantity" id="quantity" value="1" min="1" max="99" class="form-control" style="width: 100px;">
+                </div>
+                <button type="submit" class="btn btn-cart btn-lg">Add to Cart</button>
+            </form>
         </div>
     </div>
 </div>
