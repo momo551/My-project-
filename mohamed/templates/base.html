@@ -47,7 +47,7 @@
                             <i class="bi-cart"></i> Cart
                             <span class="badge bg-secondary" id="cart-count">
                                 {% if request.session.cart %}
-                                    {{ request.session.cart|length }}
+                                    {{ request.session.cart.values|length }}
                                 {% else %}
                                     0
                                 {% endif %}

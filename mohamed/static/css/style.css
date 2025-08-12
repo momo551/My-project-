@@ -1,66 +1,544 @@
-/* Custom styles for the fashion site */
+/* 🎨 Enhanced Fashion Site Styles - Beautiful & Modern */
 
-/* Product cards */
+/* === Global Styles === */
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #45b7d1;
+    --dark-color: #2c3e50;
+    --light-color: #f8f9fa;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+    --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+    --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* === Global Reset === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+/* === Navigation Enhancement === */
+.navbar {
+    background: var(--gradient-primary) !important;
+    box-shadow: var(--shadow-medium);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+/* === Hero Section === */
+.jumbotron {
+    background: var(--gradient-secondary);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    margin-bottom: 2rem;
+}
+
+.jumbotron h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.jumbotron p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.jumbotron .btn {
+    background: var(--primary-color);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.jumbotron .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-heavy);
+}
+
+/* === Product Cards Enhancement === */
 .product-card {
-    transition: transform 0.2s;
-    margin-bottom: 20px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    overflow: hidden;
+    border: none;
 }
 
 .product-card:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
 }
 
 .product-image {
-    height: 200px;
+    height: 250px;
     object-fit: cover;
+    transition: var(--transition);
 }
 
-/* Cart items */
-.cart-item-image {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
+.product-card:hover .product-image {
+    transform: scale(1.05);
 }
 
-/* Footer */
-footer {
-    margin-top: auto;
+.card-body {
+    padding: 1.5rem;
 }
 
-/* Profile page */
-.profile-section {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+.card-title {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
 }
 
-/* Forms */
-.form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
+.card-text {
+    color: #666;
+    margin-bottom: 1rem;
 }
 
-/* Buttons */
+/* === Enhanced Buttons === */
+.btn-primary {
+    background: var(--gradient-primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
 .btn-cart {
-    background-color: #28a745;
-    border-color: #28a745;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: var(--transition);
 }
 
 .btn-cart:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
 }
 
-.btn-checkout {
-    background-color: #007bff;
-    border-color: #007bff;
+/* === Enhanced Forms === */
+.form-control {
+    border-radius: var(--border-radius);
+    border: 1px solid #ddd;
+    padding: 12px;
+    transition: var(--transition);
 }
 
-.btn-checkout:hover {
-    background-color: #0069d9;
-    border-color: #0062cc;
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25);
 }
+
+/* === Enhanced Cards === */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-medium);
+}
+
+/* === Enhanced Footer === */
+footer {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 2rem 1rem;
+    }
+    
+    .jumbotron h1 {
+        font-size: 2rem;
+    }
+    
+    .product-card {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .jumbotron {
+        padding: 1.5rem 1rem;
+    }
+    
+    .jumbotron h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* === Hover Effects === */
+.hover-shadow:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-3px);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* === Loading States === */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* === Responsive Grid === */
+@media (max-width: 768px) {
+    .product-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* === Enhanced Typography === */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+/* === Enhanced Alerts === */
+.alert {
+    border-radius: var(--border-radius);
+    border: none;
+}
+
+.alert-success {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.alert-danger {
+    background: var(--gradient-secondary);
+    color: white;
+}
+
+/* === Enhanced Modals === */
+.modal-content {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-heavy);
+}
+
+/* === Enhanced Tables === */
+.table {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.table th {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+}
+
+.table td {
+    border-color: #e9ecef;
+}
+
+/* === Enhanced Pagination === */
+.pagination .page-link {
+    border-radius: var(--border-radius);
+    color: var(--primary-color);
+    border: 1px solid #dee2e6;
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--gradient-primary);
+    border-color: var(--primary-color);
+}
+
+/* === Enhanced Badges === */
+.badge {
+    border-radius: 50px;
+    padding: 0.5em 1em;
+}
+
+.badge-primary {
+    background: var(--gradient-primary);
+}
+
+.badge-secondary {
+    background: var(--gradient-secondary);
+}
+
+/* === Enhanced Modals === */
+.modal-header {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.modal-footer {
+    background: #f8f9fa;
+}
+
+/* === Enhanced Tooltips === */
+.tooltip {
+    font-size: 0.875rem;
+}
+
+/* === Enhanced Progress Bars === */
+.progress {
+    height: 8px;
+    border-radius: 4px;
+}
+
+.progress-bar {
+    background: var(--gradient-primary);
+}
+
+/* === Enhanced Dropdowns === */
+.dropdown-menu {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+}
+
+.dropdown-item:hover {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+/* === Enhanced Tabs === */
+.nav-tabs .nav-link {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    color: var(--dark-color);
+}
+
+.nav-tabs .nav-link.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* === Enhanced Accordions === */
+.accordion-button {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.accordion-button:not(.collapsed) {
+    background: var(--gradient-secondary);
+}
+
+/* === Enhanced Breadcrumbs === */
+.breadcrumb {
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+}
+
+.breadcrumb-item.active {
+    color: var(--primary-color);
+}
+
+/* === Enhanced Alerts === */
+.alert {
+    border-radius: var(--border-radius);
+    border: none;
+}
+
+.alert-success {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.alert-danger {
+    background: var(--gradient-secondary);
+    color: white;
+}
+
+/* === Enhanced Badges === */
+.badge {
+    border-radius: 50px;
+    padding: 0.5em 1em;
+}
+
+.badge-primary {
+    background: var(--gradient-primary);
+}
+
+.badge-secondary {
+    background: var(--gradient-secondary);
+}
+
+/* === Enhanced Cards === */
+.card-header {
+    background: var(--gradient-primary);
+    color: white;
+    border-bottom: none;
+}
+
+.card-footer {
+    background: #f8f9fa;
+}
+
+/* === Enhanced Tables === */
+.table-responsive {
+    border-radius: var(--border-radius);
+}
+
+.table thead th {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+}
+
+.table tbody tr:hover {
+    background: rgba(255, 107, 107, 0.1);
+}
+
+/* === Enhanced Buttons === */
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background: var(--gradient-primary);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-secondary {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover {
+    background: var(--gradient-secondary);
+    border-color: var(--secondary-color);
+}
+
+/* === Enhanced Inputs === */
+.input-group-text {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+}
+
+/* === Enhanced Progress === */
+.progress-bar-striped {
+    background: var(--gradient-primary);
+}
+
+/* === Enhanced Tooltips === */
+.tooltip-inner {
+    background: var(--dark-color);
+    border-radius: var(--border-radius);
+}
+
+/* === Enhanced Popovers === */
+.popover-header {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.popover-body {
+    background: var(--light-color);
+}
+
+/* === Enhanced Toasts === */
+.toast {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+}
+
+.toast-header {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+/* === Enhanced Spinners === */
+.spinner-border {
+    color: var(--primary-color);
+}
+
+/* === Enhanced Progress Bars === */
+.progress-bar-animated {
+    background: var(--gradient-primary);
+}
+
+/* === Enhanced Cards === */
+.card-img-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.card-img-overlay:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* === Enhanced Modals === */
+.modal-backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
